@@ -56,9 +56,6 @@
                 "options": ["Modern sans-serif", "Elegant serif", "Consistent mono"],
                 "default": "Modern sans-serif"
             },
-            "footer_text": {
-                "type": "text"
-            },
             "header_section_layout": {
                 "type": "select",
                 "options": ["Side by side", "Large background", "Typographic profile"],
