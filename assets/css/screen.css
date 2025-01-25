@@ -240,6 +240,101 @@ hr {
     }
 }
 
+/* Form component
+/* ---------------------------------------------------------- */
+
+.form {
+    position: relative;
+    cursor: default !important;
+}
+
+.form label {
+    width: 100%;
+    font-size: 1.6rem;
+}
+
+.form .gh-btn {
+    min-width: max-content;
+    position: relative;
+}
+
+.form label span {
+    position: absolute;
+    z-index: -100;
+    opacity: 0;
+}
+
+.form input {
+    background-color: transparent !important;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.form .gh-btn svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: none;
+    visibility: hidden;
+}
+
+.form.loading .gh-btn svg {
+    display: block;
+    visibility: visible;
+}
+
+.form.loading .gh-btn {
+    color: transparent;
+    cursor: not-allowed;
+}
+
+
+.form .form-notifications {
+    position: absolute;
+    top: calc(100% + 1.4rem);
+    left: 0;
+    width: 100%;
+    text-align: center;
+
+    font-size: 1.4rem;
+}
+
+.form .form-notifications .error {
+    color: red;
+}
+
+.form .form-notifications .success {
+    color: green;
+}
+
+.form .form-notifications p {
+    display: none;
+    visibility: hidden;
+}
+
+.form.success .form-notifications .success,
+.form.error .form-notifications .error {
+    display: block;
+    visibility: visible;
+    animation: notificationMoveIn .4s ease;
+}
+
+@keyframes notificationMoveIn {
+    from {
+        transform: translateY(-2rem);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
 /* About section
 /* ---------------------------------------------------------- */
 

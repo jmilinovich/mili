@@ -34,10 +34,18 @@
                 {{/if}}
                 {{#if @site.members_enabled}}
                     {{#unless @member}}
-                        <div class="gh-subscribe-input" data-portal>
-                            jamie@example.com
-                            <span class="gh-btn gh-primary-btn">Subscribe</span>
-                        </div>
+                        <form class="gh-subscribe-input form" data-members-form>
+                            <label>
+                                <span>Email</span>
+                                <input placeholder="jamie@example.com" data-members-email type="email" required="true">
+                            </label>
+                            <button type="submit" class="gh-btn gh-primary-btn">Subscribe {{> icons/loader}}</button>
+
+                            <div class="form-notifications">
+                                <p class="error" data-members-error></p>
+                                <p class="success">The magic link has been sent to your email!</p>
+                            </div>
+                        </form>
                     {{/unless}}
                 {{/if}}
             </div>
