@@ -218,6 +218,22 @@ hr {
     color: inherit;
 }
 
+.is-head-open #gh-head {
+    height: max-content;
+}
+
+.gh-head-brand .gh-btn {
+
+    @media (min-width:769px) {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+.gh-head-brand .gh-btn + .gh-burger {
+    margin-left: 3vw;
+}
+
 @media (max-width: 991px) {
     .is-head-open:not(.is-head-brand):not(.is-head-dark):not(.is-head-transparent) :is(#gh-head, #gh-head .gh-head-actions) {
         background-color: var(--background-color);
