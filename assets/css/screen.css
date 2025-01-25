@@ -104,6 +104,90 @@ hr {
     }
 }
 
+
+.gh-article-wrapper h2 {
+    position: relative !important;
+    padding-top: 1rem !important;
+    padding-bottom: .5rem !important;
+    margin-top: 2rem !important;
+    margin-bottom: .5rem !important;
+}
+.gh-article-wrapper h3 {
+    position: relative !important;
+    padding-top: .5rem !important;
+    padding-bottom: .5rem !important;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+/* Fixed header styles */
+.gh-head {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0;
+    right: 0;
+    background-color: white !important;
+    z-index: 9999;
+    height: 60px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Ensure inner header container is also white */
+.gh-head-inner {
+    background-color: white !important;
+}
+
+/* Ensure header text is always black */
+.gh-head-menu a,
+/* .gh-head-link, */
+.gh-head-logo {
+    color: #000 !important;
+}
+
+.gh-site {
+    padding-top: 60px !important;
+}
+
+
+/* Override transparent header button styles */
+.is-head-transparent .gh-head-btn {
+    background-color: var(--ghost-accent-color) !important;
+    color: white !important;
+}
+
+/* Style the burger menu icon with accent color */
+.gh-burger:before,
+.gh-burger:after,
+.gh-burger span {
+    background-color: #000 !important;
+}
+
+/* Article content spacing */
+.gh-content p {
+    margin-bottom: 2rem !important;
+}
+
+/* Preserve spacing for last paragraph in a section */
+.gh-content p:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Add spacing between other common elements */
+.gh-content h2,
+.gh-content h3,
+.gh-content h4,
+.gh-content ul,
+.gh-content ol,
+.gh-content blockquote {
+    margin-bottom: 2rem !important;
+}
+
+/* Add some breathing room around code blocks and images */
+.gh-content pre,
+.gh-content figure {
+    margin: 3rem 0 !important;
+}
+
 /* Header
 /* ---------------------------------------------------------- */
 
