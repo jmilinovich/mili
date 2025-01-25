@@ -9,21 +9,23 @@
             
             <div class="gh-content">
                 <ul class="gh-posts-list" style="list-style: none; padding: 0;">
-                    {{#foreach posts}}
-                        <li style="margin-bottom: var(--gap);">
-                            <a href="{{url}}" class="gh-posts-list-link" style="
-                                font-family: var(--font-serif);
-                                font-size: var(--content-font-size);
-                                font-weight: 700;
-                                color: var(--color-primary-text);
-                                text-decoration: none;
-                            ">
-                                {{title}}
-                            </a>
-                        </li>
-                    {{else}}
-                        <li>No posts to display.</li>
-                    {{/foreach}}
+                    {{#get "posts" filter='tag:{{slug}}'}}
+                        {{#foreach posts}}
+                            <li style="margin-bottom: var(--gap);">
+                                <a href="{{url}}" class="gh-posts-list-link" style="
+                                    font-family: var(--font-serif);
+                                    font-size: var(--content-font-size);
+                                    font-weight: 700;
+                                    color: var(--color-primary-text);
+                                    text-decoration: none;
+                                ">
+                                    {{title}}
+                                </a>
+                            </li>
+                        {{else}}
+                            <li>No posts to display.</li>
+                        {{/foreach}}
+                    {{/get}}
                 </ul>
             </div>
         </div>
