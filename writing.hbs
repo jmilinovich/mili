@@ -1,38 +1,32 @@
 {{!< default}}
 
 {{#tag}}
-
 <main class="gh-main gh-outer">
     <div class="gh-inner">
-        <div class="gh-canvas">
-            <header class="gh-article-header">
+        <article class="gh-article {{post_class}}">
+            <header class="gh-article-header gh-canvas">
                 <h1 class="gh-article-title">{{@custom.writing_page_title}}</h1>
             </header>
             
-            <div class="gh-content">
-                <ul class="gh-posts-list" style="list-style: none; padding: 0;">
+            <section class="gh-content gh-canvas">
+                <ul class="gh-posts-list">
                     {{#get "posts" filter='tag:{{slug}}'}}
                         {{#foreach posts}}
-                            <li style="margin-bottom: var(--gap);">
-                                <a href="{{url}}" class="gh-posts-list-link" style="
-                                    font-family: var(--font-serif);
-                                    font-size: var(--content-font-size);
-                                    font-weight: 700;
-                                    color: var(--color-primary-text);
-                                    text-decoration: none;
-                                ">
+                            <li>
+                                <a href="{{url}}" class="gh-posts-list-link">
                                     {{title}}
                                 </a>
-                                <time class="gh-card-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}}</time>
+                                <time class="gh-card-date" datetime="{{date format="YYYY-MM-DD"}}">
+                                    {{date format="DD MMM YYYY"}}
+                                </time>
                             </li>
                         {{else}}
                             <li>No posts to display.</li>
                         {{/foreach}}
                     {{/get}}
                 </ul>
-            </div>
-        </div>
+            </section>
+        </article>
     </div>
 </main>
-
 {{/tag}}

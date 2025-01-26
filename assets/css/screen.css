@@ -1752,3 +1752,8 @@ a.gh-article-tag:visited {
     color: var(--tag-color, var(--color-darker-gray)) !important;
 }
 
+.page-template.gh-article-title,
+.page-template.gh-article-excerpt,
+.page-template.gh-article-header {
+    text-align: left;
+}
