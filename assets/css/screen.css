@@ -234,11 +234,11 @@ hr {
     margin-left: 3vw;
 }
 
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
     .is-head-open:not(.is-head-brand):not(.is-head-dark):not(.is-head-transparent) :is(#gh-head, #gh-head .gh-head-actions) {
         background-color: var(--background-color);
     }
-}
+} */
 
 /* Form component
 /* ---------------------------------------------------------- */
@@ -1073,6 +1073,8 @@ hr {
     font-family: var(--gh-font-heading, var(--font-mono));
 }
 
+
+
 /* Comments
 /* ---------------------------------------------------------- */
 
@@ -1359,3 +1361,15 @@ section.gh-content.gh-canvas .gh-article-wrapper h3 {
         grid-column: 1 / span 12;
     }
 } */
+
+.gh-head-btn.subscribe-btn.gh-btn.gh-primary-btn.gh-portal-close {
+    background-color: black !important;
+}
+
+.gh-head-brand .gh-btn {
+    background-color: black !important;
+}
+
+.gh-head-actions {
+    background-color: white !important;
+}
