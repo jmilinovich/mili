@@ -1731,3 +1731,24 @@ button.gh-portal-close:hover {
     color: white !important;
 }
 
+/* Override link color for article tags */
+.gh-article-tag,
+.gh-article-tag a,
+a.gh-article-tag {
+    color: var(--tag-color, var(--color-darker-gray)) !important;
+    text-decoration: none !important;
+}
+
+.gh-article-tag:hover,
+.gh-article-tag a:hover,
+a.gh-article-tag:hover {
+    color: var(--tag-color, var(--color-darker-gray)) !important;
+    opacity: 0.8;
+}
+
+.gh-article-tag:visited,
+.gh-article-tag a:visited,
+a.gh-article-tag:visited {
+    color: var(--tag-color, var(--color-darker-gray)) !important;
+}
+
