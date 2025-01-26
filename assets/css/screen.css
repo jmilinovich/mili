@@ -59,51 +59,44 @@ hr {
 }
 
 .gh-canvas > *,
-.page-template .no-image :is(.gh-article-title, .gh-article-excerpt) {
-    grid-column: 4 / span 6;
+.gh-content > * {
+    grid-column: 1 / span 12;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.gh-canvas > .kg-width-wide {
-    grid-column: 4 / span 9;
+.gh-canvas > .kg-width-wide,
+.gh-canvas > .kg-width-full,
+.gh-canvas > .kg-gallery-card.kg-width-wide {
+    max-width: none;
+    grid-column: 1 / span 12;
 }
 
 .gh-canvas > .kg-width-full,
 .gh-canvas > .kg-gallery-card.kg-width-wide {
     position: relative;
     z-index: 20;
-    grid-column: 1 / span 12;
     transform: translate3d(0, 0, 0);
 }
 
 @media (max-width: 991px) {
-    .gh-canvas > *,
-   .page-template .no-image :is(.gh-article-title, .gh-article-excerpt) {
-        grid-column: 3 / span 8;
-    }
-
-    .gh-canvas > .kg-width-wide {
-        grid-column: 3 / span 10;
+    .gh-canvas > * {
+        grid-column: 1 / span 12;
     }
 }
 
 @media (max-width: 767px) {
-    .gh-canvas > *,
-   .page-template .no-image :is(.gh-article-title, .gh-article-excerpt) {
-        grid-column: 2 / span 10;
-    }
-
-    .gh-canvas > .kg-width-wide {
+    .gh-canvas > * {
         grid-column: 1 / span 12;
     }
 }
 
 @media (max-width: 480px) {
-    .gh-canvas > *,
-   .page-template .no-image :is(.gh-article-title, .gh-article-excerpt) {
+    .gh-canvas > * {
         grid-column: 1 / span 12;
     }
 }
-
 
 .gh-article-wrapper h2 {
     position: relative !important;
@@ -985,7 +978,7 @@ hr {
 @media (max-width: 991px) {
     :is(.gh-article-title, .gh-article-excerpt),
     .gh-content > .gh-article-header {
-        grid-column: 1 / span 10;
+        grid-column: 1 / span 12;
     }
 
     .gh-article-meta {
@@ -1111,7 +1104,7 @@ hr {
     color: var(--color-secondary-text);
     cursor: pointer;
     background-color: var(--color-border);
-    border-radius: 72px;
+    border-radius: 8px;
 }
 
 .gh-subscribe-input .gh-btn {
@@ -1220,7 +1213,10 @@ hr {
 
 @media (min-width:993px) {
     .gh-canvas>*, .page-template .no-image :is(.gh-article-title,.gh-article-excerpt) {
-        grid-column: 3 / span 7;
+        grid-column: 1 / span 12;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -1362,14 +1358,184 @@ section.gh-content.gh-canvas .gh-article-wrapper h3 {
     }
 } */
 
+.gh-btn,
+.gh-head-btn,
+.gh-portal-close,
+.gh-primary-btn,
+.form .gh-btn,
+.gh-subscribe-input .gh-btn {
+    border-radius: 8px !important;  /* Consistent with the input field radius */
+}
+
+/* Style all primary buttons to be black */
+.gh-primary-btn,
+.gh-head-btn.gh-primary-btn {
+    background-color: black !important;
+    color: white !important;
+}
+
+/* Style subscribe input button to use accent color */
+.gh-subscribe-input .gh-btn {
+    background-color: var(--ghost-accent-color) !important;
+    color: white !important;
+}
+
+/* Ensure the header subscribe button also matches */
 .gh-head-btn.subscribe-btn.gh-btn.gh-primary-btn.gh-portal-close {
+    border-radius: 8px !important;
     background-color: black !important;
 }
 
-.gh-head-brand .gh-btn {
-    background-color: black !important;
+/* Make pages full width */
+.page-template .gh-canvas > *,
+.page-template .gh-content > *,
+.page-template .gh-article-header,
+.page-template .no-image :is(.gh-article-title, .gh-article-excerpt) {
+    grid-column: 1 / span 12;
 }
 
-.gh-head-actions {
-    background-color: white !important;
+/* Ensure this applies at all breakpoints by overriding existing media queries */
+@media (min-width: 993px) {
+    .page-template .gh-canvas > *,
+    .page-template .gh-content > *,
+    .page-template .gh-article-header {
+        grid-column: 1 / span 12;
+    }
 }
+
+@media (max-width: 991px) {
+    .page-template .gh-canvas > *,
+    .page-template .gh-content > *,
+    .page-template .gh-article-header {
+        grid-column: 1 / span 12;
+    }
+}
+
+/* Make pages have narrower content width */
+.page-template .gh-content {
+    max-width: 720px;  /* Adjust this value to your preferred width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Also apply to the header if you want title/excerpt to match content width */
+.page-template .gh-article-header {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Consistent max-width for posts, pages, and writing page */
+.gh-content > *,
+.page-template .gh-content > *,
+.page-template .gh-article-header,
+.tag-template .gh-content > *,
+.tag-template .gh-article-header,
+.tag-template .gh-posts-list {
+    grid-column: 1 / span 12;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Ensure headers on pages also follow the same width constraints */
+.page-template .gh-article-title,
+.page-template .gh-article-excerpt,
+.tag-template .gh-article-title {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Override any media queries to maintain consistency */
+@media (min-width: 993px), (max-width: 991px) {
+    .page-template .gh-canvas > *,
+    .page-template .gh-content > *,
+    .page-template .gh-article-header,
+    .page-template .gh-article-title,
+    .page-template .gh-article-excerpt {
+        grid-column: 1 / span 12;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Reset all spacing and ensure consistent header height */
+.gh-head {
+    height: 60px;
+}
+
+/* Add site padding to account for fixed header */
+.gh-site {
+    padding-top: 60px !important;
+}
+
+/* Reset all inner spacing */
+.post-template .gh-main.gh-outer,
+.page-template .gh-main.gh-outer,
+.tag-template .gh-main.gh-outer {
+    padding-top: 0 !important;
+    padding-bottom: 40px !important;
+}
+
+.gh-inner,
+.gh-canvas,
+.gh-article {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Force all headers to same position */
+.gh-article-header,
+.gh-article-wrapper .gh-article-header {
+    padding-top: 40px !important;
+    margin-top: 0 !important;
+    margin-bottom: 40px !important;
+}
+
+/* Override for writing template header */
+.tag-template .gh-article-header {
+    padding-bottom: 0 !important;
+    margin-bottom: 20px !important;
+}
+
+/* Reset any wrapper spacing */
+.gh-article-wrapper {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Ensure content sections don't add extra space */
+.gh-content {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* Ensure consistent spacing for article titles */
+.gh-article-title {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* Make header and content full width in writing template */
+.tag-template .gh-inner .gh-canvas {
+    width: 100%;
+}
+
+.tag-template .gh-article-header,
+.tag-template .gh-content {
+    width: 100% !important;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 40px;
+}
+
+.tag-template .gh-posts-list {
+    width: 100%;
+    padding: 0;
+}
+
