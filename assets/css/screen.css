@@ -2,9 +2,44 @@
 @import "fonts.css";
 
 :root {
-    --font-sans: Manrope, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
-    --font-serif: Libre Baskerville, Georgia, Times, serif;
+    /* Core font definitions */
+    --font-sans: Assistant, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+    --font-serif: "IBM Plex Serif", Georgia, Times, serif;
     --font-mono: JetBrains Mono, Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    --font-heading: Fraunces, Georgia, serif;
+
+    /* Font weights */
+    --weight-normal: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+
+    /* Font sizes using a modular scale */
+    --text-xs: 1.2rem;
+    --text-sm: 1.4rem;
+    --text-base: 1.6rem;
+    --text-lg: 1.8rem;
+    --text-xl: 2.0rem;
+    --text-2xl: 2.4rem;
+    --text-3xl: 3.0rem;
+    --text-4xl: 3.6rem;
+    --text-5xl: 4.8rem;
+    --text-6xl: 6.0rem;
+
+    /* Line heights */
+    --leading-tight: 1.2;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 2;
+
+    /* Letter spacing */
+    --tracking-tighter: -0.05em;
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.025em;
+    --tracking-wider: 0.05em;
+
     --color-primary-text: var(--color-darker-gray);
     --color-secondary-text-dark: rgba(0, 0, 0, 0.4);
     --color-secondary-text-light: rgba(255, 255, 255, 0.64);
@@ -15,6 +50,11 @@
     --container-width: 1440px;
     --content-font-size: clamp(1.7rem, 0.38vw + 1.4rem, 2rem);
     --header-spacing: clamp(4.8rem, 4rem + 2.5vw, 8rem);
+
+    /* Link colors */
+    --color-link: #0066cc;           /* Traditional web blue */
+    --color-link-hover: #0052a3;     /* Slightly darker for hover */
+    --color-link-visited: #551A8B;   /* Traditional visited link purple */
 }
 
 :root.has-light-text {
@@ -26,6 +66,11 @@
 
 body {
     background-color: var(--background-color);
+    font-family: var(--font-serif);
+    font-weight: var(--weight-normal);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-normal);
 }
 
 .gh-main {
@@ -45,13 +90,29 @@ hr {
     background-color: var(--color-border);
 }
 
-.gh-content h2 {
-    font-size: 2.25em;
-    letter-spacing: -0.03em;
+.gh-content h2,
+.gh-content h3,
+.gh-content h4,
+.gh-article-title,
+.gh-card-title,
+.gh-about-primary,
+.gh-cta-title {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-semibold);
 }
 
-.gh-content h3 {
-    font-size: 1.6em;
+.gh-content p,
+.gh-content li,
+.gh-article-excerpt,
+.gh-about-secondary {
+    font-family: var(--font-serif);
+    font-weight: var(--weight-normal);
+}
+
+.gh-content strong,
+.gh-content b {
+    font-family: var(--font-serif);
+    font-weight: var(--weight-medium);
 }
 
 .gh-canvas {
@@ -123,6 +184,8 @@ hr {
     z-index: 9999;
     height: 60px;
     border-bottom: 1px solid rgba(0,0,0,0.1);
+    font-family: var(--font-serif);
+    font-size: var(--text-base);
 }
 
 /* Ensure inner header container is also white */
@@ -184,13 +247,9 @@ hr {
 /* Header
 /* ---------------------------------------------------------- */
 
-.gh-head {
-    font-size: 1.6rem;
-    background-color: transparent;
-}
-
 .gh-head-logo {
-    font-weight: 800;
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-tight);
 }
 
 .gh-head-logo img {
@@ -199,7 +258,7 @@ hr {
 
 .gh-head-menu,
 .gh-head-link {
-    font-weight: 700;
+    font-weight: var(--weight-medium);
 }
 
 .is-head-stacked .gh-head-menu::before,
@@ -901,10 +960,10 @@ hr {
 
 .gh-article-title {
     grid-column: 1 / span 9;
-    font-size: clamp(4rem, 2.86vw + 2.63rem, 7.2rem);
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -0.03em;
+    font-size: clamp(var(--text-4xl), 5vw, var(--text-6xl));
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
 }
 
 .has-serif-font:not([class*=" gh-font-heading"]):not([class^="gh-font-heading"]):not([class*=" gh-font-body"]):not([class^="gh-font-body"]) .gh-article-title {
@@ -918,9 +977,9 @@ hr {
 .gh-article-excerpt {
     grid-column: 1 / span 9;
     max-width: 840px;
-    font-size: clamp(1.8rem, 0.54vw + 1.54rem, 2.4rem);
-    font-weight: 500;
-    line-height: 1.45;
+    font-size: var(--text-xl);
+    font-weight: var(--weight-medium);
+    line-height: var(--leading-relaxed);
 }
 
 .has-serif-font:not([class*=" gh-font-heading"]):not([class^="gh-font-heading"]):not([class*=" gh-font-body"]):not([class^="gh-font-body"]) .gh-article-excerpt {
@@ -1384,6 +1443,7 @@ section.gh-content.gh-canvas .gh-article-wrapper h3 {
 .gh-head-btn.subscribe-btn.gh-btn.gh-primary-btn.gh-portal-close {
     border-radius: 8px !important;
     background-color: black !important;
+    color: white !important;
 }
 
 /* Make pages full width */
@@ -1537,5 +1597,137 @@ section.gh-content.gh-canvas .gh-article-wrapper h3 {
 .tag-template .gh-posts-list {
     width: 100%;
     padding: 0;
+}
+
+/* Base link styles */
+a {
+    color: var(--color-link);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--color-link-hover);
+}
+
+a:visited {
+    color: var(--color-link-visited);
+}
+
+/* Exception for header links - keep them black */
+.gh-head a {
+    color: #000 !important;
+}
+
+/* Exception for buttons - keep their existing styles */
+.gh-btn {
+    color: inherit;
+}
+
+/* More specific selectors to ensure styles are applied */
+.gh-content a,
+.gh-article-excerpt a,
+.gh-card-excerpt a,
+.gh-about-content a,
+.gh-article-meta a,
+.gh-card-meta a {
+    color: var(--color-link) !important;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    transition: color 0.2s ease;
+}
+
+.gh-content a:hover,
+.gh-article-excerpt a:hover,
+.gh-card-excerpt a:hover,
+.gh-about-content a:hover,
+.gh-article-meta a:hover,
+.gh-card-meta a:hover {
+    color: var(--color-link-hover) !important;
+}
+
+.gh-content a:visited,
+.gh-article-excerpt a:visited,
+.gh-card-excerpt a:visited,
+.gh-about-content a:visited,
+.gh-article-meta a:visited,
+.gh-card-meta a:visited {
+    color: var(--color-link-visited) !important;
+}
+
+/* Exceptions */
+.gh-head a,
+.gh-head-menu a,
+.gh-head-link,
+.gh-head-logo {
+    color: #000 !important;
+}
+
+.gh-btn,
+.gh-btn-link,
+.gh-portal-close {
+    color: inherit !important;
+}
+
+/* Ghost Portal Popup Typography */
+.gh-portal-popup,
+.gh-portal-popup *,
+.gh-portal-wrapper,
+.gh-portal-wrapper * {
+    font-family: var(--font-serif) !important;
+}
+
+.gh-portal-popup h1,
+.gh-portal-popup h2,
+.gh-portal-popup h3,
+.gh-portal-popup h4,
+.gh-portal-popup .gh-portal-main-title {
+    font-family: var(--font-heading) !important;
+    font-weight: var(--weight-semibold) !important;
+    letter-spacing: var(--tracking-tight) !important;
+}
+
+.gh-portal-popup input,
+.gh-portal-popup button {
+    font-family: var(--font-serif) !important;
+    font-weight: var(--weight-medium) !important;
+}
+
+.gh-portal-popup .gh-portal-btn {
+    font-family: var(--font-serif) !important;
+    font-weight: var(--weight-medium) !important;
+    letter-spacing: var(--tracking-wide) !important;
+}
+
+.gh-portal-popup .gh-portal-content,
+.gh-portal-popup p {
+    font-family: var(--font-serif) !important;
+    font-weight: var(--weight-normal) !important;
+    line-height: var(--leading-normal) !important;
+}
+
+/* Ghost Portal Button Styles */
+.gh-portal-popup .gh-portal-btn,
+.gh-portal-popup .gh-btn.gh-portal-btn,
+.gh-portal-popup .gh-btn.gh-primary-btn,
+.gh-portal-popup .gh-portal-close,
+.gh-btn.gh-primary-btn.gh-portal-close,
+button.gh-portal-btn,
+button.gh-portal-close {
+    background-color: black !important;
+    color: white !important;
+    border-radius: 8px !important;
+}
+
+/* Ensure hover states maintain white text */
+.gh-portal-popup .gh-portal-btn:hover,
+.gh-portal-popup .gh-btn.gh-portal-btn:hover,
+.gh-portal-popup .gh-btn.gh-primary-btn:hover,
+.gh-portal-popup .gh-portal-close:hover,
+.gh-btn.gh-primary-btn.gh-portal-close:hover,
+button.gh-portal-btn:hover,
+button.gh-portal-close:hover {
+    color: white !important;
 }
 
