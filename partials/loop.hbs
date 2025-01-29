@@ -1,4 +1,30 @@
 <article class="gh-card {{post_class}}"{{#if primary_tag.accent_color}} style="--tag-color: {{primary_tag.accent_color}};"{{/if}}>
+    
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title"><a class="gh-card-link" href="{{url}}">{{title}}</a></h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}}</time>
+                {{#unless access}}
+                {{^has visibility="public"}}
+                    <span class="gh-card-access">
+                        {{> "icons/lock"}}
+                        {{#has visibility="members"}}
+                            Members
+                        {{else}}
+                            Paid
+                        {{/has}}
+                    </span>
+                {{/has}}
+                {{/unless}}
+                {{#if @site.comments_enabled}}
+                    {{comment_count class="gh-card-comments"}}
+                {{/if}}
+            </footer>
+        </div>
+
+</article>
+
+{{!-- <article class="gh-card {{post_class}}"{{#if primary_tag.accent_color}} style="--tag-color: {{primary_tag.accent_color}};"{{/if}}>
     <a class="gh-card-link" href="{{url}}">
 
         {{#match @custom.post_feed_layout "!=" "Typographic"}}
@@ -47,4 +73,4 @@
         </div>
 
     </a>
-</article>
+</article> --}}
