@@ -55,6 +55,8 @@
     --color-link: #0066cc;           /* Traditional web blue */
     --color-link-hover: #0052a3;     /* Slightly darker for hover */
     --color-link-visited: #551A8B;   /* Traditional visited link purple */
+
+    --container-width: 720px;
 }
 
 :root.has-light-text {
@@ -88,6 +90,9 @@ figcaption {
 
 hr {
     background-color: var(--color-border);
+}
+.gh-content {
+    width: 100%;
 }
 
 .gh-content h2,
@@ -193,6 +198,10 @@ hr {
     background-color: white !important;
 }
 
+.gh-inner.gh-head-inner {
+    max-width: 1200px;
+}
+
 /* Ensure header text is always black */
 .gh-head-menu a,
 /* .gh-head-link, */
@@ -244,8 +253,14 @@ hr {
     margin: 3rem 0 !important;
 }
 
+pre code.language-markdown {
+    white-space: pre-wrap;
+}
+
 /* Header
 /* ---------------------------------------------------------- */
+
+
 
 .gh-head-logo {
     font-weight: var(--weight-semibold);
@@ -722,11 +737,25 @@ hr {
     flex-direction: column;
 }
 
+.has-typographic-feed .gh-card-link {
+    text-decoration: underline;
+    font-family: var(--font-serif);
+    font-weight: var(--weight-normal);
+    line-height: 1.7;
+}
+
+.has-typographic-feed .gh-card-date {
+    color: var(--color-secondary-text);
+    font-family: var(--gh-font-body, var(--font-sans));
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
 .gh-posts-list li time {
     font-size: 1.2rem;
     font-weight: 500;
     color: var(--color-secondary-text);
-    font-family: var(--gh-font-body,var(--font-sans));
+    font-family: var(--gh-font-body, var(--font-sans));
     margin-top: 10px;
 }
 
@@ -1270,14 +1299,14 @@ hr {
     grid-column: 2 / span 10;
 } */
 
-@media (min-width:993px) {
+/* @media (min-width:993px) {
     .gh-canvas>*, .page-template .no-image :is(.gh-article-title,.gh-article-excerpt) {
         grid-column: 1 / span 12;
         max-width: 720px;
         margin-left: auto;
         margin-right: auto;
     }
-}
+} */
 
 /* Header
 /* ---------------------------------------------------------- */
@@ -1389,7 +1418,7 @@ section.gh-content.gh-canvas .gh-article-wrapper h3 {
 }
 
 .gh-card + .gh-card {
-    margin-top: calc(var(--spacing-large) * 1.2);
+    margin-top: 10px;
 }
 
 /* Responsive Styles
@@ -1446,16 +1475,26 @@ section.gh-content.gh-canvas .gh-article-wrapper h3 {
     color: white !important;
 }
 
+.page-template .gh-article-header {
+    width: 100%;
+    text-align: left;
+}
+
+.tag-template .gh-article-title {
+    grid-column: span 12;
+    width: 100%;
+}
+
 /* Make pages full width */
-.page-template .gh-canvas > *,
+/* .page-template .gh-canvas > *,
 .page-template .gh-content > *,
 .page-template .gh-article-header,
 .page-template .no-image :is(.gh-article-title, .gh-article-excerpt) {
     grid-column: 1 / span 12;
-}
+} */
 
 /* Ensure this applies at all breakpoints by overriding existing media queries */
-@media (min-width: 993px) {
+/* @media (min-width: 993px) {
     .page-template .gh-canvas > *,
     .page-template .gh-content > *,
     .page-template .gh-article-header {
@@ -1469,24 +1508,24 @@ section.gh-content.gh-canvas .gh-article-wrapper h3 {
     .page-template .gh-article-header {
         grid-column: 1 / span 12;
     }
-}
+} */
 
 /* Make pages have narrower content width */
-.page-template .gh-content {
-    max-width: 720px;  /* Adjust this value to your preferred width */
+/* .page-template .gh-content {
+    max-width: 720px;  
     margin-left: auto;
     margin-right: auto;
-}
+} */
 
 /* Also apply to the header if you want title/excerpt to match content width */
-.page-template .gh-article-header {
+/* .page-template .gh-article-header {
     max-width: 720px;
     margin-left: auto;
     margin-right: auto;
-}
+} */
 
 /* Consistent max-width for posts, pages, and writing page */
-.gh-content > *,
+/* .gh-content > *,
 .page-template .gh-content > *,
 .page-template .gh-article-header,
 .tag-template .gh-content > *,
@@ -1496,19 +1535,19 @@ section.gh-content.gh-canvas .gh-article-wrapper h3 {
     max-width: 720px;
     margin-left: auto;
     margin-right: auto;
-}
+} */
 
 /* Ensure headers on pages also follow the same width constraints */
-.page-template .gh-article-title,
+/* .page-template .gh-article-title,
 .page-template .gh-article-excerpt,
 .tag-template .gh-article-title {
     max-width: 720px;
     margin-left: auto;
     margin-right: auto;
-}
+} */
 
 /* Override any media queries to maintain consistency */
-@media (min-width: 993px), (max-width: 991px) {
+/* @media (min-width: 993px), (max-width: 991px) {
     .page-template .gh-canvas > *,
     .page-template .gh-content > *,
     .page-template .gh-article-header,
@@ -1519,7 +1558,7 @@ section.gh-content.gh-canvas .gh-article-wrapper h3 {
         margin-left: auto;
         margin-right: auto;
     }
-}
+} */
 
 /* Reset all spacing and ensure consistent header height */
 .gh-head {
