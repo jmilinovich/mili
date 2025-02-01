@@ -69,7 +69,7 @@
             },
             "secondary_header": {
                 "type": "text",
-                "default": "an American entrepreneur and technology executive working at the intersection of AI and design.",
+                "default": "an enthusiastic entrepreneur and technology executive working at the intersection of AI and design.",
                 "group": "homepage"
             },
             "post_feed_layout": {
