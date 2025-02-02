@@ -10,7 +10,7 @@
             
             <section class="gh-content gh-canvas">
                 <ul class="gh-posts-list">
-                    {{#get "posts" filter='tag:{{slug}}'}}
+                    {{#get "posts" filter='tag:{{slug}}' limit="all"}}
                         {{#foreach posts}}
                             <li>
                                 <a href="{{url}}" class="gh-posts-list-link">

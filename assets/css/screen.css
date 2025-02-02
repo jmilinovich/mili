@@ -3,6 +3,7 @@
 
 :root {
     /* Core font definitions */
+    --font-sf-pro: -apple-system, "SF Pro Display", "SF Pro Text", BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
     --font-sans: Assistant, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
     --font-serif: "IBM Plex Serif", Georgia, Times, serif;
     --font-mono: JetBrains Mono, Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
@@ -1141,6 +1142,7 @@ pre code.language-markdown {
 
 .gh-navigation {
     grid-column: 1 / span 12;
+    font-family: var(--font-sf-pro);
     font-size: clamp(2rem, 1.7rem + 0.9375vw, 3.2rem);
     font-weight: 800;
     letter-spacing: -0.02em;
@@ -1795,4 +1797,9 @@ a.gh-article-tag:visited {
 .page-template.gh-article-excerpt,
 .page-template.gh-article-header {
     text-align: left;
+}
+
+/* Update body content to use SF Pro */
+.has-sans-body:not([class*=" gh-font-body"]):not([class^="gh-font-body"]) .is-body {
+    font-family: var(--font-sf-pro);
 }
